@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import search from './search.svg';
+import Card from './Card';
 
 const API = 'http://omdbapi.com?apiKey=bd6a837b';
 const m1 = {
@@ -35,20 +36,13 @@ const App = () => {
                 />
                 <img
                     src={search}
-                    alt="searchicon" 
-                    onClick={() => {}}
+                    alt="searchicon"
+                    onClick={() => { }}
                 />
             </div>
 
             <div className="container">
-                <div className="movie">
-                    <div>
-                        <p>{m1.Year}</p>
-                    </div>
-                    <div>
-                      <img src={m1.Poster} alt="movie poster" />
-                    </div>
-                </div>
+                <Card m1 = {m1}/>
             </div>
         </div>
     )
