@@ -1,29 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
-import search from './search.svg';
+import searchicon from './search.svg';
 import Card from './Card';
 
 const API = 'http://omdbapi.com?apiKey=bd6a837b';
-const m1 = {
-    "Title": "Batman v Superman: Dawn of Justice",
-    "Year": "2016",
-    "imdbID": "tt2975590",
-    "Type": "movie",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BYThjYzcyYzItNTVjNy00NDk0LTgwMWQtYjMwNmNlNWJhMzMyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
-}
 
 const App = () => {
+
+    const [movies, setMovies] = useState([]);
+    const [search, setSearch] = useState('');
 
     const fetchMovie = async (title) => {
         const res = await fetch(`${API}&s=${title}`);
         const data = await res.json();
 
-        console.log(data.Search);
+        setMovies(data.Search);
+        console.log(data)
     }
 
     useEffect(() => {
         fetchMovie('Superman');
     }, []);
+
+
     return (
         <div className='app'>
             <h1>MovieToGo</h1>
@@ -31,19 +30,32 @@ const App = () => {
             <div className="search">
                 <input
                     placeholder='Search Your Movie'
-                    value="Superman"
-                    onChange={() => { }}
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
                 />
                 <img
-                    src={search}
+                    src={searchicon}
                     alt="searchicon"
-                    onClick={() => { }}
+                    onClick={() => fetchMovie(search)}
                 />
             </div>
 
-            <div className="container">
-                <Card m1 = {m1}/>
-            </div>
+            {
+                movies?.length > 0
+                    ? (
+                        <div className="container">
+                            {movies.map((movie) => (
+                                <Card movie={movie} />
+                            ))}
+                        </div>
+                    ) : (
+                        <div className='empty'>
+                            <h3>No Movies Found!!!</h3>
+                        </div>
+                    )
+            }
+
+
         </div>
     )
 }

@@ -14,12 +14,11 @@
 
 body {
     font-family: var(--font-roboto);
-    background-color: #212426;
+    background-color: #c2edce;
 }
 
 .app {
     padding: 4rem;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,8 +29,8 @@ h1 {
     font-size: 3rem;
     letter-spacing: 0.9px;
     background: linear-gradient(90deg,
-            rgba(249, 211, 180, 1) 0%,
-            rgba(249, 211, 180, 0) 100%);
+            rgb(56, 128, 135) 0%,
+            rgb(186, 223, 231) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -48,9 +47,9 @@ h1 {
 
     padding: 1.5rem 1.75rem;
     border-radius: 3rem;
-    background: #1f2123;
-    -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
-    box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+    background: #6fb3b8;
+    -webkit-box-shadow: 5px 5px 7px #badfe7, -5px -5px 7px #badfe7;
+    box-shadow: 5px 5px 7px #badfe7, -5px -5px 7px #badfe7;
 }
 
 .search input {
@@ -62,8 +61,8 @@ h1 {
     padding-right: 1rem;
 
     outline: none;
-    color: #a1a1a1;
-    background: #1f2123;
+    color: #f6f6f2;
+    background: #6fb3b8;
 }
 
 .search img {
@@ -71,21 +70,6 @@ h1 {
     height: 35px;
     cursor: pointer;
 }
-
-/* .search button {
-  padding: 20px 40px;
-  border-radius: 0.5rem;
-  margin-left: 15px;
-  color: #a1a1a1;
-  font-family: var(--font-raleway);
-  font-weight: 900;
-  letter-spacing: 0.75px;
-  font-size: 1.25rem;
-  cursor: pointer;
-  background: #1f2123;
-  -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
-  box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
-} */
 
 .empty {
     width: 100%;
@@ -152,7 +136,7 @@ h1 {
 
 .movie div:nth-of-type(3) {
     z-index: 2;
-    background-color: #343739;
+    background-color: #badfe7;
     padding: 16px 24px 24px 24px;
 
     position: absolute;
@@ -167,7 +151,6 @@ h1 {
     font-size: 13px;
     letter-spacing: 2px;
     font-weight: 500;
-    color: #f0f0f0;
 }
 
 .movie div:nth-of-type(3) h3 {

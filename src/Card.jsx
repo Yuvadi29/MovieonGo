@@ -1,23 +1,23 @@
 import React from 'react';
 
-const Card = ({ m1 }) => {
+const Card = ({ movie: { imdbID, Year, Poster, Title, Type } }) => {
     return (
-        <div className="movie">
+        <div className="movie" key={imdbID}>
             <div>
-                <p>{m1.Year}</p>
+                <p>{Year}</p>
             </div>
 
             <div>
-                <img src={m1.Poster !== 'N/A' ? m1.Poster : 'https://via/placeholder.com/400'} alt={m1.Title} />
+                <img src={Poster !== 'N/A' ? Poster : 'https://img.icons8.com/arcade/64/null/no-image.png'} alt={Title} />
             </div>
 
             <div>
-                <span>{m1.Type}</span>
-                <h2>{m1.Title}</h2>
+                <span>{Type}</span>
+                <h2>{Title}</h2>
             </div>
 
         </div>
-  )
+    )
 }
 
 export default Card;
